@@ -40,7 +40,7 @@ jobs:
           docker buildx build \
           --pull \
           --push \
-          --tag mondedie/flarum:"${TAG}" \
+          --tag chen00054/flarum:"${TAG}" \
           --platform linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64 \
           .
   stable:
@@ -71,6 +71,6 @@ jobs:
           docker buildx build \
           --pull \
           --push \
-          --tag mondedie/flarum:stable \
+          --tag chen00054/flarum:stable \
           --platform linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64 \
           .
