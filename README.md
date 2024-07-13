@@ -83,7 +83,7 @@ version: "3"
 
 services:
   flarum:
-    image: flarum:latest
+    image: chen00054/flarum:latest
     container_name: flarum
     env_file:
       - /mnt/docker/flarum/flarum.env
@@ -241,8 +241,8 @@ https://getcomposer.org/doc/03-cli.md#modifying-repositories
 
 ### Guide for upgrade your flarum container
 
-See the instructions [here](https://github.com/jan/docker-flarum/blob/master/UPGRADE.md)
+See the instructions [here](https://github.com/chen00054/docker-flarum/blob/master/UPGRADE.md)
 
 ## License
 
-Docker image [mondedie/flarum](https://hub.docker.com/r/mondedie/flarum) is released under [MIT License](https://github.com/mondediefr/docker-flarum/blob/master/LICENSE).
+Docker image [mondedie/flarum](https://hub.docker.com/r/chen00054/flarum) is released under [MIT License](https://github.com/chen00054/docker-flarum/blob/master/LICENSE).
