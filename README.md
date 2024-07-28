@@ -3,8 +3,8 @@
 ![logo](https://i.imgur.com/Bjrtbsc.png)
 
 [![](https://github.com/chen00054/docker-flarum/workflows/build/badge.svg)](https://github.com/chen00054/docker-flarum/actions)
-[![](https://img.shields.io/docker/pulls/mondedie/flarum)](https://hub.docker.com/r/mondedie/flarum)
-[![](https://img.shields.io/docker/stars/mondedie/flarum)](https://hub.docker.com/r/mondedie/flarum)
+[![](https://img.shields.io/docker/pulls/chen00054/flarum)](https://hub.docker.com/r/chen00054/flarum)
+[![](https://img.shields.io/docker/stars/chen00054/flarum)](https://hub.docker.com/r/chen00054/flarum)
 
 ### Tag available
 
@@ -245,4 +245,4 @@ See the instructions [here](https://github.com/chen00054/docker-flarum/blob/mast
 
 ## License
 
-Docker image [mondedie/flarum](https://hub.docker.com/r/chen00054/flarum) is released under [MIT License](https://github.com/chen00054/docker-flarum/blob/master/LICENSE).
+Docker image [chen00054/flarum](https://hub.docker.com/r/chen00054/flarum) is released under [MIT License](https://github.com/chen00054/docker-flarum/blob/master/LICENSE).
