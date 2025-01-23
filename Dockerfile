@@ -54,7 +54,7 @@ RUN apk add --no-progress --no-cache \
         session \
         tokenizer \
         xmlwriter \
-        zip
+        zip \
   && cd /tmp \
   && curl --progress-bar http://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
   && sed -i 's/memory_limit = .*/memory_limit = ${PHP_MEMORY_LIMIT}/' /etc/php/8.2/fpm/php.ini \
