@@ -1,4 +1,4 @@
-FROM php:8.2-fpm-alpine
+FROM alpine:3.21
 
 LABEL description="Simple forum software for building great communities" \
       maintainer="Magicalex <magicalex@mondedie.fr>"
@@ -17,48 +17,44 @@ ENV GID=991 \
     FLARUM_TITLE=Docker-Flarum \
     DEBUG=false \
     LOG_TO_STDOUT=false \
+    GITHUB_TOKEN_AUTH=false \
     FLARUM_PORT=8888
 
-RUN apk update && apk add --no-progress --no-cache \
+RUN apk add --no-progress --no-cache \
     curl \
-    curl-dev \
     git \
     icu-data-full \
     libcap \
     nginx \
+    php82 \
+    php82-ctype \
+    php82-curl \
+    php82-dom \
+    php82-exif \
+    php82-fileinfo \
+    php82-fpm \
+    php82-gd \
+    php82-gmp \
+    php82-iconv \
+    php82-intl \
+    php82-mbstring \
+    php82-mysqlnd \
+    php82-opcache \
+    php82-pecl-apcu \
+    php82-openssl \
+    php82-pdo \
+    php82-pdo_mysql \
+    php82-phar \
+    php82-session \
+    php82-tokenizer \
+    php82-xmlwriter \
+    php82-zip \
+    php82-zlib \
     su-exec \
     s6 \
-    build-base \
-    libpng-dev \
-    libjpeg-turbo-dev \
-    libwebp-dev \
-    freetype-dev \
-    gmp-dev \
-    libxml2-dev \
-    autoconf \
-    bash \
-    && docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp \
-    && docker-php-ext-install \
-        ctype \
-        curl \
-        exif \
-        fileinfo \
-        gd \
-        gmp \
-        iconv \
-        intl \
-        mbstring \
-        mysqli \
-        opcache \
-        pdo \
-        pdo_mysql \
-        session \
-        tokenizer \
-        xmlwriter \
-        zip \
   && cd /tmp \
   && curl --progress-bar http://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
-  && sed -i "s/memory_limit = .*/memory_limit = ${PHP_MEMORY_LIMIT}/" /usr/local/etc/php/php.ini \
+  && sed -i 's/memory_limit = .*/memory_limit = ${PHP_MEMORY_LIMIT}/' /etc/php82/php.ini \
   && chmod +x /usr/local/bin/composer \
   && mkdir -p /run/php /flarum/app \
   && COMPOSER_CACHE_DIR="/tmp" composer create-project flarum/flarum:$VERSION /flarum/app \
