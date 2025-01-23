@@ -17,6 +17,7 @@ ENV GID=991 \
     FLARUM_TITLE=Docker-Flarum \
     DEBUG=false \
     LOG_TO_STDOUT=false \
+    GITHUB_TOKEN_AUTH=false \
     FLARUM_PORT=8888
 
 RUN apk add --no-progress --no-cache \
@@ -26,6 +27,7 @@ RUN apk add --no-progress --no-cache \
     libcap \
     nginx \
     php82 \
+    php82-cli \
     php82-ctype \
     php82-curl \
     php82-dom \
@@ -37,7 +39,7 @@ RUN apk add --no-progress --no-cache \
     php82-iconv \
     php82-intl \
     php82-mbstring \
-    php82-mysqlnd \
+    php82-mysqli \
     php82-opcache \
     php82-pecl-apcu \
     php82-openssl \
@@ -51,6 +53,7 @@ RUN apk add --no-progress --no-cache \
     php82-zlib \
     su-exec \
     s6 \
+    ln -s /usr/bin/php82 /usr/bin/php \
   && cd /tmp \
   && curl --progress-bar http://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
   && sed -i 's/memory_limit = .*/memory_limit = ${PHP_MEMORY_LIMIT}/' /etc/php82/php.ini \
