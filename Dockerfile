@@ -31,7 +31,7 @@ RUN apk update && apk add --no-progress --no-cache \
     libpng-dev \
     libjpeg-turbo-dev \
     libwebp-dev \
-    libfreetype6-dev \
+    freetype-dev \
     gmp-dev \
     libxml2-dev \
     autoconf \
