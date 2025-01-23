@@ -28,24 +28,33 @@ RUN apk add --no-progress --no-cache \
     nginx \
     su-exec \
     s6 \
-  && docker-php-ext-install \
-      ctype \
-      curl \
-      exif \
-      fileinfo \
-      gd \
-      gmp \
-      iconv \
-      intl \
-      mbstring \
-      mysqli \
-      opcache \
-      pdo \
-      pdo_mysql \
-      session \
-      tokenizer \
-      xmlwriter \
-      zip \
+    build-base \
+    libpng-dev \
+    libjpeg-turbo-dev \
+    libwebp-dev \
+    libfreetype6-dev \
+    gmp-dev \
+    libxml2-dev \
+    autoconf \
+    bash \
+    && docker-php-ext-install \
+        ctype \
+        curl \
+        exif \
+        fileinfo \
+        gd \
+        gmp \
+        iconv \
+        intl \
+        mbstring \
+        mysqli \
+        opcache \
+        pdo \
+        pdo_mysql \
+        session \
+        tokenizer \
+        xmlwriter \
+        zip
   && cd /tmp \
   && curl --progress-bar http://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
   && sed -i 's/memory_limit = .*/memory_limit = ${PHP_MEMORY_LIMIT}/' /etc/php/8.2/fpm/php.ini \
