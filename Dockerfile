@@ -17,7 +17,6 @@ ENV GID=991 \
     FLARUM_TITLE=Docker-Flarum \
     DEBUG=false \
     LOG_TO_STDOUT=false \
-    GITHUB_TOKEN_AUTH=false \
     FLARUM_PORT=8888
 
 RUN apk add --no-progress --no-cache \
