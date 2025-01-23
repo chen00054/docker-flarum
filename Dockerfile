@@ -21,6 +21,7 @@ ENV GID=991 \
 
 RUN apk update && apk add --no-progress --no-cache \
     curl \
+    curl-dev \
     git \
     icu-data-full \
     libcap \
@@ -36,6 +37,7 @@ RUN apk update && apk add --no-progress --no-cache \
     libxml2-dev \
     autoconf \
     bash \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp \
     && docker-php-ext-install \
         ctype \
         curl \
