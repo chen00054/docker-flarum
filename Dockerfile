@@ -1,4 +1,4 @@
-FROM alpine:3.21
+FROM alpine:3.19
 
 LABEL description="Simple forum software for building great communities" \
       maintainer="Magicalex <magicalex@mondedie.fr>"
