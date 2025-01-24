@@ -15,6 +15,7 @@ ENV GID=991 \
     DB_NAME=flarum \
     DB_PORT=3306 \
     FLARUM_TITLE=Docker-Flarum \
+    GITHUB_TOKEN_AUTH=false \
     DEBUG=false \
     LOG_TO_STDOUT=false \
     FLARUM_PORT=8888
