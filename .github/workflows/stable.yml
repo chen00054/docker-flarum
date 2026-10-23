@@ -41,7 +41,7 @@ jobs:
           --pull \
           --push \
           --tag chen00054/flarum:"${TAG}" \
-          --platform linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64 \
+          --platform linux/amd64,linux/arm64 \
           .
   stable:
     runs-on: ubuntu-latest
@@ -72,5 +72,5 @@ jobs:
           --pull \
           --push \
           --tag chen00054/flarum:stable \
-          --platform linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64 \
+          --platform linux/amd64,linux/arm64 \
           .
