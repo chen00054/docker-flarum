@@ -15,15 +15,15 @@
 
 - Multi-platform image: `linux/386`, `linux/amd64`, `linux/arm/v6`, `linux/arm/v7`, `linux/arm64`
 - Lightweight & secure image
-- Based on Alpine Linux 3.19
-- **nginx** and **PHP 8.2**
-- Latest [Flarum Framework](https://github.com/flarum/framework) (v1.8.5)
+- Based on Alpine Linux 3.22
+- **nginx** and **PHP 8.3**
+- Latest [Flarum Framework](https://github.com/flarum/framework) (v1.8.20)
 - MySQL/Mariadb driver
 - OPCache extension configured
 
 ### Build-time variables
 
-- **VERSION** = Version of [flarum/flarum](https://github.com/flarum/flarum) skeleton (default: *v1.8.1*)
+- **VERSION** = Version of [flarum/flarum](https://github.com/flarum/flarum) skeleton (default: *v1.8.19*). The skeleton allows Flarum Core updates within the 1.8 series, so Composer resolves core v1.8.20.
 
 ### Ports
 
@@ -168,8 +168,8 @@ services:
       - /mnt/docker/flarum/nginx:/etc/nginx/flarum
 ```
 
-This example install php82-gmp php82-session and php82-brotli with apk  
-You can find a php extension here https://pkgs.alpinelinux.org/packages?name=php82-*&branch=v3.19&repo=&arch=x86_64&maintainer=
+This example install php83-gmp php83-session and php83-brotli with apk
+You can find a php extension here https://pkgs.alpinelinux.org/packages?name=php83-*&branch=v3.22&repo=&arch=x86_64&maintainer=
 
 ### Install custom extensions
 
