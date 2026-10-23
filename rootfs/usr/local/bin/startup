@@ -49,6 +49,10 @@ fi
 
 cd /flarum/app
 
+# Flarum 2 distinguishes MariaDB from MySQL in its database driver config.
+sed -i "s/^  driver: mysql$/  driver: ${DB_DRIVER}/" /flarum/app/config.yml
+sed -i "s/'driver' => 'mysql'/'driver' => '${DB_DRIVER}'/" /flarum/app/config.php.sample
+
 # Add github token authentication (eg. for privates extensions)
 if [ "${GITHUB_TOKEN_AUTH}" != false ]; then
   echo "[INFO] Adding github token authentication"

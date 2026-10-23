@@ -17,13 +17,13 @@
 - Lightweight & secure image
 - Based on Alpine Linux 3.22
 - **nginx** and **PHP 8.3**
-- Latest [Flarum Framework](https://github.com/flarum/framework) (v1.8.20)
+- Latest [Flarum Framework](https://github.com/flarum/framework) (v2.0.2)
 - MySQL/Mariadb driver
 - OPCache extension configured
 
 ### Build-time variables
 
-- **VERSION** = Version of [flarum/flarum](https://github.com/flarum/flarum) skeleton (default: *v1.8.19*). The skeleton allows Flarum Core updates within the 1.8 series, so Composer resolves core v1.8.20.
+- **VERSION** = Version of [flarum/flarum](https://github.com/flarum/flarum) skeleton (default: *v2.0.0*). Composer resolves the latest compatible Flarum Core 2.x release.
 
 ### Ports
 
@@ -45,6 +45,7 @@
 | **DEBUG** | Flarum debug mode | *optional* | false
 | **FORUM_URL** | Forum URL | **required** | none
 | **DB_HOST** | MariaDB instance ip/hostname | *optional* | mariadb
+| **DB_DRIVER** | Database driver (`mariadb` or `mysql`) | *optional* | mariadb
 | **DB_USER** | MariaDB database username | *optional* | flarum
 | **DB_NAME** | MariaDB database name | *optional* | flarum
 | **DB_PASS** | MariaDB database password | **required** | none

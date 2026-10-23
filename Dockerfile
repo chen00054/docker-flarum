@@ -3,7 +3,7 @@ FROM alpine:3.22
 LABEL description="Simple forum software for building great communities" \
       maintainer="Magicalex <magicalex@mondedie.fr>"
 
-ARG VERSION=1.8.19
+ARG VERSION=2.0.0
 
 ENV GID=991 \
     UID=991 \
@@ -13,6 +13,7 @@ ENV GID=991 \
     DB_HOST=mariadb \
     DB_USER=flarum \
     DB_NAME=flarum \
+    DB_DRIVER=mariadb \
     DB_PORT=3306 \
     FLARUM_TITLE=Docker-Flarum \
     GITHUB_TOKEN_AUTH=false \
@@ -60,7 +61,6 @@ RUN apk add --no-progress --no-cache \
   && chmod +x /usr/local/bin/composer \
   && mkdir -p /run/php /flarum/app \
   && COMPOSER_HOME="/flarum/.composer" COMPOSER_CACHE_DIR="/tmp" composer create-project --no-install flarum/flarum:$VERSION /flarum/app \
-  && COMPOSER_HOME="/flarum/.composer" composer config --working-dir=/flarum/app --json audit.ignore '{"GHSA-cxf4-7mrp-vvpr":"league/flysystem 1.x is required by flarum/core 1.x and has no patched release."}' \
   && COMPOSER_HOME="/flarum/.composer" COMPOSER_CACHE_DIR="/tmp" composer install --working-dir=/flarum/app --no-interaction \
   && composer clear-cache \
   && rm -rf /flarum/.composer /tmp/* \
