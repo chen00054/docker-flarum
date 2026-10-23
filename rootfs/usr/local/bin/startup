@@ -49,6 +49,17 @@ fi
 
 cd /flarum/app
 
+# Flarum 2 upgrades may need extensions that only publish beta-compatible releases.
+# Keep stable releases preferred while allowing those packages to resolve.
+if grep -Eq '"flarum/core"[[:space:]]*:[[:space:]]*"\^2' /flarum/app/composer.json; then
+  echo "[INFO] Allowing beta extension releases while preferring stable packages"
+  if ! COMPOSER_CACHE_DIR="${CACHE_DIR}" su-exec "${UID}:${GID}" composer config minimum-stability beta \
+    || ! COMPOSER_CACHE_DIR="${CACHE_DIR}" su-exec "${UID}:${GID}" composer config prefer-stable true; then
+    echo "[ERROR] Unable to configure Composer stability for Flarum 2 extensions"
+    exit 1
+  fi
+fi
+
 # Flarum 2 distinguishes MariaDB from MySQL in its database driver config.
 sed -i "s/^  driver: mysql$/  driver: ${DB_DRIVER}/" /flarum/app/config.yml
 sed -i "s/'driver' => 'mysql'/'driver' => '${DB_DRIVER}'/" /flarum/app/config.php.sample
@@ -91,7 +102,7 @@ if [ -e '/flarum/app/public/assets/rev-manifest.json' ] || [ -e '/flarum/app/pub
     while read line; do
       extension="${extension}${line} "
     done < /flarum/app/extensions/list
-    cmd="composer require ${extension}"
+    cmd="composer require --with-all-dependencies ${extension}"
     eval "COMPOSER_CACHE_DIR=${CACHE_DIR} su-exec ${UID}:${GID} ${cmd}"
     echo "[INFO] Install extra bundled extensions: DONE"
   else

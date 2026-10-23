@@ -54,6 +54,13 @@ case "${action}" in
     ;;
 esac
 
+# Repair cache ownership before clearing it. The wrapper normally runs as root
+# via `docker exec`; Composer and Flarum themselves run as UID:GID.
+if [ "$(id -u)" -eq 0 ]; then
+  mkdir -p /flarum/app/storage/cache
+  chown -R "${UID}:${GID}" /flarum/app/storage/cache
+fi
+
 su-exec "${UID}:${GID}" php /flarum/app/flarum cache:clear
 
 exit 0
