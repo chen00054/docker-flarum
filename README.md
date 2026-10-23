@@ -13,7 +13,7 @@
 
 ### Features
 
-- Multi-platform image: `linux/386`, `linux/amd64`, `linux/arm/v6`, `linux/arm/v7`, `linux/arm64`
+- Multi-platform image: `linux/amd64`, `linux/arm64`
 - Lightweight & secure image
 - Based on Alpine Linux 3.22
 - **nginx** and **PHP 8.3**
